@@ -1,0 +1,55 @@
+.navbar {
+    position: fixed;
+    /* Zorgt dat padding binnen de 100% valt */
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    /* Duwt links naar rechts */
+    padding: 40px 60px;
+    z-index: 10001;
+    /* Zorgt dat hij boven de dots en de cursor staat */
+    pointer-events: none;
+    /* Klikken gaat 'door' de lege ruimte van de balk heen */
+}
+
+.nav-links-container {
+    display: flex;
+    gap: 40px;
+    pointer-events: auto;
+    /* Alleen de links vangen klikken op */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Subtiele hover-animatie zonder cursor */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background-color: #53B2E1;
+    /* Jouw cursor kleur */
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #000;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}

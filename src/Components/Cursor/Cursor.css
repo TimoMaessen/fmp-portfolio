@@ -1,0 +1,60 @@
+.cursor-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999;
+    /* Extreem hoog zodat het overal bovenop ligt */
+}
+
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background: #53B2E1;
+    border-radius: 50%;
+    margin-left: -6px;
+    margin-top: -6px;
+    will-change: transform;
+    transition: opacity 0.4s ease, width 0.4s ease, height 0.4s ease;
+}
+
+.head {
+    z-index: 100000;
+    width: 14px;
+    height: 14px;
+}
+
+#segment-1 {
+    opacity: 0.7;
+    width: 11px;
+    height: 11px;
+}
+
+#segment-2 {
+    opacity: 0.5;
+    width: 10px;
+    height: 10px;
+}
+
+#segment-3 {
+    opacity: 0.3;
+    width: 9px;
+    height: 9px;
+}
+
+#segment-4 {
+    opacity: 0.15;
+    width: 8px;
+    height: 8px;
+}
+
+/* Zorg dat de muis overal verborgen blijft */
+html,
+body,
+a,
+button {
+    cursor: none !important;
+}

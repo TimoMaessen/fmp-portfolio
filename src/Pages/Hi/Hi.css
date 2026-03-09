@@ -1,0 +1,149 @@
+.hi-container {
+    max-width: 1500px;
+    /* Breder zoals gevraagd */
+    margin: 0 auto;
+    padding: 140px 40px;
+}
+
+.intro-section {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 80px;
+    margin-bottom: 100px;
+    align-items: center;
+    max-width: 1200px;
+    /* Intro houden we iets compacter voor focus */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cards-stack-container {
+    position: relative;
+    /* Verhoog de min-height of gebruik een dynamische waarde */
+    min-height: 1100px;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 200px;
+    /* Extra ruimte voor de footer */
+    display: block;
+}
+
+/* Zorg dat de secties binnen de container geen invloed hebben op de float */
+.info-card {
+    position: absolute;
+    background: white;
+    padding: 60px;
+    border-radius: 32px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    width: 65%;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    /* Voorkom dat tekst buiten de kaart valt als deze heel lang is */
+    overflow: hidden;
+}
+
+/* Vision: Links boven */
+.vision-card {
+    top: 0;
+    left: 0;
+    text-align: left;
+}
+
+/* Identity: Rechtsonder (Helft van de vorige verticale offset) */
+/* Identity: Rechtsonder */
+.identity-card {
+    top: 75px;
+    right: 0;
+    /* We lijnen de container niet meer globaal uit, maar doen het per element */
+}
+
+/* Alleen de kop-elementen van de Identity kaart gaan naar rechts */
+.identity-card .card-tag,
+.identity-card .section-title {
+    text-align: right;
+    width: 100%;
+    /* Zorgt dat text-align effect heeft over de volle breedte */
+}
+
+/* De paragrafen blijven links uitgelijnd voor betere leesbaarheid */
+.identity-card .card-content p {
+    text-align: left;
+    /* max-width: 90%; */
+    /* Optioneel: iets kortere regellengte oogt vaak mooier bij links-uitlijning op een rechtse kaart */
+    margin-left: auto;
+    /* Zorgt dat de tekstblokken zelf wel aan de rechterkant van de kaart 'hangen' indien gewenst */
+}
+
+/* Voor mobiel: Alles weer strak naar links */
+@media (max-width: 1024px) {
+
+    .identity-card .card-tag,
+    .identity-card .section-title,
+    .identity-card .card-content p {
+        text-align: left !important;
+        max-width: 100%;
+    }
+}
+
+.info-card.is-active {
+    z-index: 10;
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
+}
+
+.info-card.is-stacked {
+    z-index: 1;
+    opacity: 0.4;
+    transform: scale(0.96);
+}
+
+.info-card.is-stacked:hover {
+    opacity: 0.7;
+    transform: scale(0.98);
+}
+
+/* TYPOGRAFIE */
+.card-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #53B2E1;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+
+
+/* Mobiel: Stacken uitschakelen */
+@media (max-width: 1024px) {
+    .cards-stack-container {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .info-card {
+        position: relative;
+        width: 100%;
+        top: 0 !important;
+        right: 0 !important;
+        text-align: left !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .identity-card .card-tag,
+    .identity-card .section-title {
+        text-align: left;
+    }
+}

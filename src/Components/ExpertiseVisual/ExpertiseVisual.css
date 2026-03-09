@@ -1,0 +1,93 @@
+.expertise-visual-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    background: #fdfdfb;
+    padding: 40px;
+    border-radius: 20px;
+    margin: 40px 0;
+}
+
+.svg-wrapper {
+    flex: 1;
+}
+
+.area {
+    fill: #53B2E1;
+    fill-opacity: 0.15;
+    stroke: #53B2E1;
+    stroke-width: 1px;
+    transition: all 0.3s ease;
+}
+
+.area:hover {
+    fill-opacity: 0.4;
+    stroke-width: 2px;
+    filter: url(#glow);
+}
+
+.label {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    pointer-events: none;
+    fill: #222;
+}
+
+.drp-node {
+    fill: #fff;
+    stroke: #53B2E1;
+    stroke-width: 2px;
+}
+
+.drp-label {
+    font-size: 18px;
+    fill: #000;
+    text-anchor: middle;
+}
+
+.sensor {
+    fill: none;
+    stroke: transparent;
+    stroke-width: 30px;
+    /* Large hit area for easy hovering */
+    cursor: pointer;
+}
+
+.info-panel {
+    flex: 0.8;
+    border-left: 1px solid #ddd;
+    padding-left: 30px;
+}
+
+.info-title {
+    color: #53B2E1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.intersect-path {
+    fill: transparent;
+    /* Invisible until hovered */
+    stroke: #53B2E1;
+    stroke-width: 0;
+    cursor: pointer;
+    transition: fill 0.2s ease;
+}
+
+.intersect-path:hover {
+    fill: rgba(83, 178, 225, 0.4);
+    /* Glow effect for the specific piece */
+    stroke-width: 2px;
+}
+
+.v-circle {
+    fill: #53B2E1;
+    fill-opacity: 0.1;
+    stroke: #53B2E1;
+    stroke-width: 1px;
+    pointer-events: none;
+    /* Let the paths handle the interaction */
+}

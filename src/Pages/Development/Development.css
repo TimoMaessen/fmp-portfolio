@@ -1,0 +1,440 @@
+/* Development.css */
+
+.dev-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 100px 40px;
+}
+
+.dev-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dev-intro {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* --- DYNAMISCHE KLEUREN VOOR DE ACTIEVE FILTER KNOP --- */
+
+/* Business & Entrepreneurship - Rood */
+.active-ea-be .dev-quick-nav button.active {
+    background-color: #E63946;
+}
+
+/* Creativity & Aesthetics - Oranje */
+.active-ea-ca .dev-quick-nav button.active {
+    background-color: #55cb59;
+}
+
+/* Technology & Realization - Blauw */
+.active-ea-tr .dev-quick-nav button.active {
+    background-color: #53B2E1;
+}
+
+/* Math, Data & Computing - Paars */
+.active-ea-mdc .dev-quick-nav button.active {
+    background-color: #A06CD5;
+}
+
+/* User & Society - Geel */
+.active-ea-us .dev-quick-nav button.active {
+    background-color: #FFB703;
+}
+
+.dev-quick-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding: 20px 0 20px 0;
+
+}
+
+/* Behoud je basis styling voor de knoppen */
+.dev-quick-nav button {
+    padding: 10px 24px;
+    border-radius: 50px;
+    border: 1px solid #eee;
+    background: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #666;
+    /* Standaard tekstkleur voor niet-actieve knoppen */
+}
+
+/* Algemene actieve staat voor de tekstkleur */
+.dev-quick-nav button.active {
+    color: white;
+}
+
+.dev-quick-nav button:hover {
+    transform: translateY(-3px);
+    /* Matcht de vertaling van de mini-cards */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    /* Geeft die lichte diepte bij interactie */
+    /* border-color: #ddd; Maakt de rand iets duidelijker bij inactieve knoppen */
+}
+
+/* DE FIX VOOR SYMMETRIE:
+   We gebruiken 1fr voor de zij-kolommen zodat ze exact even breed zijn.
+*/
+.node-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 3.5fr 1.2fr;
+    gap: 0;
+    align-items: center;
+    width: 100%;
+}
+
+.node-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+
+/* Links uitlijnen naar rechts (richting midden), rechts naar links */
+.node-column:first-child {
+    align-items: flex-end;
+}
+
+.node-column:last-child {
+    align-items: flex-start;
+}
+
+/* De Kaarten (Graduation Style) */
+.node-mini-card {
+    width: 220px;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 18px;
+    border-radius: 16px;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.node-mini-card:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.05);
+    /* Licht de kleur iets op bij hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* DE PIJL LOGICA:
+   We zorgen dat de pijl de volledige ruimte tussen mini-card en main-card vult.
+*/
+.node-link-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    /* Vult de volledige 1fr kolombreedte */
+}
+
+/* Voor de linker kolom: kaart staat links van de pijl */
+.node-link-group:not(.outgoing) {
+    justify-content: flex-end;
+}
+
+/* Voor de rechter kolom: kaart staat rechts van de pijl */
+.node-link-group.outgoing {
+    justify-content: flex-start;
+    flex-direction: row;
+    /* Main card -> Pijl -> Mini card */
+}
+
+/* De basis van de pijl */
+/* De basis van de pijl */
+/* De basis van de pijl */
+.arrow-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    position: relative;
+    padding: 0 10px;
+    opacity: 1;
+    /* 1. Altijd volledig dekkend */
+}
+
+/* De Schacht */
+.arrow-shaft {
+    flex-grow: 1;
+    background: #9f9f9f;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* De Pijlpunt via Pseudo-element */
+.arrow-shaft::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-right: 3px solid #9f9f9f;
+    border-bottom: 3px solid #9f9f9f;
+    border-radius: 4px;
+    /* Zachte punt */
+    transform: rotate(-45deg);
+    right: 0;
+}
+
+/* 2. Geen hover op de pijlen */
+/* We zorgen dat alleen de kaarten reageren, de pijlen blijven statisch */
+
+/* Richting voor INPUTS (Links -> Rechts naar Main Card) */
+.to-main .arrow-shaft {
+    justify-content: flex-end;
+}
+
+/* Richting voor OUTPUTS (Main Card -> Rechts naar Mini Card) */
+.from-main .arrow-shaft {
+    justify-content: flex-end;
+}
+
+/* Gewichten uit je Figma-overzicht */
+.weight-1 .arrow-shaft {
+    height: 2px;
+}
+
+.weight-1 .arrow-shaft::after {
+    border-width: 2px;
+    width: 10px;
+    height: 10px;
+}
+
+.weight-2 .arrow-shaft {
+    height: 5px;
+}
+
+.weight-2 .arrow-shaft::after {
+    border-width: 4px;
+    width: 14px;
+    height: 14px;
+}
+
+.weight-3 .arrow-shaft {
+    height: 9px;
+}
+
+.weight-3 .arrow-shaft::after {
+    border-width: 6px;
+    width: 18px;
+    height: 18px;
+}
+
+/* Behoud de hover op de mini-cards voor navigatie */
+/* .node-mini-card:hover {
+    border-color: #53B2E1;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+} */
+
+/* Behoud de hover op de mini-cards voor navigatie */
+/* .node-mini-card:hover {
+    border-color: #53B2E1;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+} */
+
+/* De hover uitlijning die je eerder vroeg */
+.node-column:first-child {
+    align-items: flex-end;
+}
+
+.node-column:last-child {
+    align-items: flex-start;
+}
+
+/* Optioneel: geef de hele container een lichte gloed bij hover op de mini-card */
+/* .node-link-group:hover,
+.node-link-group:hover {
+    background: #3a96c4;
+    /* Iets dieper blauw bij interactie */
+/* box-shadow: 0 0 8px rgba(83, 178, 225, 0.4); */
+/* } */
+
+
+
+/* Main Card */
+.node-main-card {
+    background: white;
+    padding: 60px;
+    border-radius: 32px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    z-index: 5;
+    margin: 0;
+    /* Geen extra margin nodig door grid gap 0 */
+}
+
+.node-main-card .abbr {
+    font-weight: 1000;
+}
+
+.node-main-card h2 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+}
+
+.column-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #999;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    /* Meer ruimte tussen label en de eerste kaart */
+    width: 100%;
+    text-align: center;
+    /* Indien de tekst niet precies boven de kaart uitlijnt door de pijlruimte: */
+    padding-right: 0;
+}
+
+/* Specifieke uitlijning voor de linker kolom */
+.node-column:first-child .column-label {
+    padding-right: 90px;
+    /* Compenseert voor de ruimte die de pijlen innemen naar het midden */
+}
+
+/* Specifieke uitlijning voor de rechter kolom */
+.node-column:last-child .column-label {
+    padding-left: 90px;
+    /* Compenseert voor de ruimte die de pijlen innemen naar het midden */
+}
+
+/* Business & Entrepreneurship - Rood */
+.node-mini-card.card-be {
+    background-color: #E63946;
+}
+
+/* Creativity & Aesthetics - Oranje */
+.node-mini-card.card-ca {
+    background-color: #55cb59;
+}
+
+/* Technology & Realization - Blauw */
+.node-mini-card.card-tr {
+    background-color: #53B2E1;
+}
+
+/* Math, Data & Computing - Paars */
+.node-mini-card.card-mdc {
+    background-color: #A06CD5;
+}
+
+/* User & Society - Geel/Goud */
+.node-mini-card.card-us {
+    background-color: #FFB703;
+}
+
+.active-ea-be h2,
+.active-ea-be .ea-project-gallery h2 {
+    color: #E63946;
+}
+
+.active-ea-ca h2 {
+    color: #55cb59;
+}
+
+.active-ea-tr h2 {
+    color: #53B2E1;
+}
+
+.active-ea-mdc h2 {
+    color: #A06CD5;
+}
+
+.active-ea-us h2 {
+    color: #FFB703;
+}
+
+.node-mini-card .abbr {
+    display: block;
+    font-size: 0.9rem;
+    /* Iets groter voor leesbaarheid */
+    font-weight: 900;
+    /* Extra dik (Heavy/Black) voor die 'extracurricular' look */
+    letter-spacing: 1px;
+    /* Subtiele ruimte tussen de letters */
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    /* Altijd hoofdletters */
+    color: white !important;
+}
+
+.node-mini-card .node-label {
+    font-size: .9rem;
+    font-weight: 500;
+    /* Medium gewicht voor de tekst eronder */
+    line-height: 1.3;
+    color: white !important;
+    opacity: 0.9;
+    /* Maakt de tekst iets minder dominant dan de dikke abbr */
+    margin: 0;
+}
+
+
+.ea-project-gallery {
+    margin-top: 60px;
+    /* padding: 60px 0; */
+}
+
+.gallery-title {
+    text-align: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #bbb;
+    margin-bottom: 50px;
+}
+
+.masonry-grid {
+    column-count: 5 !important;
+    /* Exact 5 kolommen */
+    column-gap: 20px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.masonry-item {
+    break-inside: avoid;
+    /* Voorkomt dat afbeeldingen breken tussen kolommen */
+    margin-bottom: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Mobile fallback */
+@media (max-width: 1024px) {
+    .masonry-grid {
+        column-count: 3;
+    }
+}
+
+@media (max-width: 600px) {
+    .masonry-grid {
+        column-count: 2;
+    }
+}
+
+.tier-divider {
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 40px;
+}
