@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/fmp-portfolio/static/css/main.29585de1.css",
-    "main.js": "/fmp-portfolio/static/js/main.75749da7.js",
-    "static/js/453.e9e7ec89.chunk.js": "/fmp-portfolio/static/js/453.e9e7ec89.chunk.js",
-    "index.html": "/fmp-portfolio/index.html",
-    "main.29585de1.css.map": "/fmp-portfolio/static/css/main.29585de1.css.map",
-    "main.75749da7.js.map": "/fmp-portfolio/static/js/main.75749da7.js.map",
-    "453.e9e7ec89.chunk.js.map": "/fmp-portfolio/static/js/453.e9e7ec89.chunk.js.map"
+    "main.css": "/static/css/main.29585de1.css",
+    "main.js": "/static/js/main.19307784.js",
+    "static/js/453.e9e7ec89.chunk.js": "/static/js/453.e9e7ec89.chunk.js",
+    "index.html": "/index.html",
+    "main.29585de1.css.map": "/static/css/main.29585de1.css.map",
+    "main.19307784.js.map": "/static/js/main.19307784.js.map",
+    "453.e9e7ec89.chunk.js.map": "/static/js/453.e9e7ec89.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.29585de1.css",
-    "static/js/main.75749da7.js"
+    "static/js/main.19307784.js"
   ]
 }
